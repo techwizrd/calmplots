@@ -22,7 +22,7 @@ jobs:
 
       - name: Build distributions
         run: |
-          uv sync --extra dev
+          uv sync --extra test
           uv run python -m build
 
       - name: Publish GitHub release assets

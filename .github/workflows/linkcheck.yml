@@ -1,0 +1,24 @@
+name: Docs Link Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 7 * * 1"
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync docs dependencies
+        run: uv sync --extra docs
+
+      - name: Run Sphinx linkcheck
+        run: uv run sphinx-build -b linkcheck docs/source docs/_build/linkcheck

@@ -1,0 +1,40 @@
+name: Gallery Matrix
+
+on:
+  workflow_dispatch:
+    inputs:
+      include-extended:
+        description: "Include extended palettes (bluey10)"
+        required: false
+        default: "false"
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  build-gallery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync gallery dependencies
+        run: uv sync --extra gallery
+
+      - name: Generate gallery matrix
+        run: |
+          if [ "${{ github.event.inputs.include-extended }}" = "true" ]; then
+            uv run python examples/gallery/generate_matrix.py --extended
+          else
+            uv run python examples/gallery/generate_matrix.py
+          fi
+
+      - name: Upload gallery artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: gallery-matrix
+          path: examples/gallery/matrix

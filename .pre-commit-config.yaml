@@ -9,6 +9,8 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-merge-conflict
+      - id: check-added-large-files
+        args: [--maxkb=1024]
       - id: check-toml
       - id: check-yaml
       - id: end-of-file-fixer
@@ -16,9 +18,9 @@ repos:
       - id: mixed-line-ending
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.13.0
+    rev: v0.15.4
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix]
       - id: ruff-format
 
@@ -28,7 +30,14 @@ repos:
         name: pyrefly type check
         entry: pyrefly check
         language: python
-        additional_dependencies: [pyrefly==0.54.0]
+        additional_dependencies:
+          - pyrefly==0.54.0
+          - matplotlib>=3.6
+          - seaborn>=0.12
+          - plotnine>=0.12
+          - plotly>=5.15
+          - altair>=5.0
+          - cycler>=0.10
         always_run: true
         pass_filenames: false
         types_or: [python, pyi]

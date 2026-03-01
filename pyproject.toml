@@ -32,6 +32,28 @@ seaborn = ["seaborn>=0.12", "matplotlib>=3.6"]
 plotnine = ["plotnine>=0.12"]
 plotly = ["plotly>=5.15"]
 altair = ["altair>=5.0"]
+test = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "pre-commit>=3.7",
+  "pyrefly>=0.54.0",
+  "build>=1.2"
+]
+docs = [
+  "sphinx>=7.4",
+  "furo>=2024.8.6"
+]
+gallery = [
+  "numpy>=1.24",
+  "pandas>=1.5",
+  "matplotlib>=3.6",
+  "seaborn>=0.12",
+  "plotnine>=0.12",
+  "plotly>=5.15",
+  "kaleido>=0.2.1,<1",
+  "altair>=5.0",
+  "vl-convert-python>=1.9.0"
+]
 all = [
   "matplotlib>=3.6",
   "seaborn>=0.12",
@@ -53,7 +75,9 @@ dev = [
   "seaborn>=0.12",
   "plotnine>=0.12",
   "plotly>=5.15",
-  "altair>=5.0"
+  "kaleido>=0.2.1,<1",
+  "altair>=5.0",
+  "vl-convert-python>=1.9.0"
 ]
 
 [project.urls]
@@ -67,7 +91,7 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.setuptools.package-data]
-calmplots = ["styles/*.mplstyle"]
+calmplots = ["styles/*.mplstyle", "py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -79,23 +103,18 @@ markers = [
 
 [tool.pyrefly]
 project-includes = [
-  "src/**/*.py",
-  "tests/**/*.py",
-  "examples/**/*.py"
+  "src/**/*.py"
 ]
 project-excludes = [
   "docs/**",
+  "examples/**",
   "**/.venv/**",
   "**/__pycache__/**"
 ]
-ignore-missing-imports = [
-  "altair.*",
-  "cycler.*",
-  "matplotlib.*",
-  "numpy.*",
-  "pandas.*",
-  "plotly.*",
-  "plotnine.*",
-  "pytest.*",
-  "seaborn.*"
-]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

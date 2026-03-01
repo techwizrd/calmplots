@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+import altair as alt
 import numpy as np
 import pandas as pd
-import altair as alt
 
 import calmplots
 
@@ -25,7 +25,14 @@ def main() -> None:
         .encode(x="x", y="y", color="cat")
         .properties(title="calmplots Altair Scatter")
     )
-    chart.save("examples/gallery/altair_scatter.html")
+    try:
+        chart.save("examples/gallery/altair_scatter.png")
+    except Exception as exc:
+        print(f"Altair PNG export skipped: {exc}")
+    try:
+        chart.save("examples/gallery/altair_scatter.svg")
+    except Exception as exc:
+        print(f"Altair SVG export skipped: {exc}")
 
 
 if __name__ == "__main__":

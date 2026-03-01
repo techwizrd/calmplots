@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import sys
 from importlib.metadata import version as pkg_version
 from pathlib import Path
-import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"

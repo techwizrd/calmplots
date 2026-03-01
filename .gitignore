@@ -8,6 +8,9 @@ build/
 dist/
 docs/_build/
 docs/source/generated/
+examples/gallery/*.html
+examples/gallery/matrix/*
+!examples/gallery/matrix/README.md
 *.egg-info/
 .eggs/
 
