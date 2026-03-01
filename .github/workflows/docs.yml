@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
 
       - name: Sync dependencies
-        run: uv sync --extra dev
+        run: uv sync --extra docs
 
       - name: Build Sphinx docs
         run: uv run sphinx-build -b html docs/source docs/_build/html

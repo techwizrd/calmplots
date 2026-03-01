@@ -5,6 +5,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 import plotly.express as px
+from _plotly_export import write_image_safely
 
 import calmplots
 
@@ -20,7 +21,20 @@ def main() -> None:
         }
     )
     fig = px.scatter(df, x="x", y="y", color="cat", title="calmplots Plotly Scatter")
-    fig.write_html("examples/gallery/plotly_scatter.html")
+    write_image_safely(
+        fig,
+        "examples/gallery/plotly_scatter.png",
+        width=900,
+        height=600,
+        scale=2,
+    )
+    write_image_safely(
+        fig,
+        "examples/gallery/plotly_scatter.svg",
+        width=900,
+        height=600,
+        scale=1,
+    )
 
 
 if __name__ == "__main__":

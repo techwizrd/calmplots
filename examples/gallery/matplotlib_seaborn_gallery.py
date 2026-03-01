@@ -9,9 +9,9 @@ import calmplots
 
 
 def main() -> None:
-    from matplotlib.colors import LinearSegmentedColormap
     import matplotlib.pyplot as plt
     import seaborn as sns
+    from matplotlib.colors import LinearSegmentedColormap
 
     rng = np.random.default_rng(42)
     calmplots.apply_matplotlib_theme()
@@ -61,7 +61,6 @@ def main() -> None:
 
     fig.savefig("examples/gallery/gallery_matplotlib.png", dpi=140)
     fig.savefig("examples/gallery/gallery_matplotlib.svg")
-    fig.savefig("examples/gallery/gallery_matplotlib.pdf")
 
     g = sns.FacetGrid(df, col="cat", hue="grp", height=2.2)
     g.map_dataframe(sns.scatterplot, x="x", y="y")

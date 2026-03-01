@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  checks:
+  tests:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -22,11 +22,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Sync dependencies
-        run: uv sync --extra dev
+      - name: Sync test dependencies
+        run: uv sync --extra test --extra all
 
       - name: Run tests
-        if: matrix.python-version != '3.12'
         run: uv run pytest
 
       - name: Run tests with coverage
@@ -40,11 +39,29 @@ jobs:
           files: ./coverage.xml
           fail_ci_if_error: false
 
+  quality:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync quality dependencies
+        run: uv sync --extra test --extra docs --extra all
+
       - name: Run type checks
         run: uv run pyrefly check
 
       - name: Run pre-commit hooks
         run: uv run pre-commit run --all-files
+
+      - name: Build docs
+        run: uv run sphinx-build -b html docs/source docs/_build/html
 
       - name: Build sdist and wheel
         run: uv run python -m build

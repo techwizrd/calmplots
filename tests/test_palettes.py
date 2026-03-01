@@ -1,7 +1,11 @@
-from calmplots.palettes import bluey_palette, colorblind_palette, continuous_palette
-
 import pytest
 
+from calmplots.palettes import (
+    bluey_palette,
+    colorblind_palette,
+    continuous_palette,
+    themed_palette,
+)
 
 pytestmark = pytest.mark.unit
 
@@ -24,3 +28,8 @@ def test_colorblind_palette_size():
 def test_continuous_palette_available():
     colors = continuous_palette("bluey_seq")
     assert len(colors) >= 5
+
+
+def test_colorblind_palette_switches_for_dark_theme():
+    dark_colors = themed_palette("colorblind", theme="dark")
+    assert "#000000" not in dark_colors

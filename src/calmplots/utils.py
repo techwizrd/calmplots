@@ -38,7 +38,9 @@ def contrast_ratio(color_a: str, color_b: str) -> float:
     return (lighter + 0.05) / (darker + 0.05)
 
 
-def contrast_sanity(text: str, background: str, line: str, grid: str) -> dict[str, float | bool]:
+def contrast_sanity(
+    text: str, background: str, line: str, grid: str
+) -> dict[str, float | bool]:
     """Return basic contrast checks used for visual sanity validation."""
     text_bg = contrast_ratio(text, background)
     line_grid = contrast_ratio(line, grid)
