@@ -117,6 +117,28 @@ visual profile.
 This manual review adds direct user evidence from an affected viewer.
 Automated simulation remains part of the formal check path.
 
+Validate with your own profile
+------------------------------
+
+You can run a short repeatable check with their own viewing conditions.
+
+1. Generate gallery outputs for light and dark themes.
+2. Open the outputs on the same display class used for regular work.
+3. Review category separation in small legends and dense marks.
+4. Confirm readability under at least one external simulator.
+5. Record any ambiguous pairs and adjust palette choice by chart type.
+
+Example local commands:
+
+.. code-block:: bash
+
+   uv run python examples/gallery/palette_gallery.py
+   uv run python examples/gallery/generate_matrix.py
+
+You can then inspect ``examples/gallery/palettes_light.png`` and
+``examples/gallery/palettes_dark.png`` first, then review the backend matrix in
+``examples/gallery/matrix/README.md``.
+
 Notes
 -----
 
