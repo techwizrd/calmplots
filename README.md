@@ -65,6 +65,24 @@ For local development with `uv`:
 uv sync --extra all
 ```
 
+Install the latest unreleased code from GitHub:
+
+```bash
+pip install "calmplots @ git+https://github.com/techwizrd/calmplots.git"
+pip install "calmplots[all] @ git+https://github.com/techwizrd/calmplots.git"
+uv add "calmplots @ git+https://github.com/techwizrd/calmplots.git"
+uv add "calmplots[all] @ git+https://github.com/techwizrd/calmplots.git"
+```
+
+For reproducible Git installs, pin to a commit:
+
+```bash
+pip install "calmplots @ git+https://github.com/techwizrd/calmplots.git@<commit_sha>"
+uv add "calmplots @ git+https://github.com/techwizrd/calmplots.git@<commit_sha>"
+```
+
+Note: Git installs may include unreleased changes; use PyPI releases for production.
+
 For docs and test tooling only:
 
 ```bash

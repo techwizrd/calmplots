@@ -12,6 +12,11 @@ def test_readme_and_docs_include_user_install_commands():
     for text in (readme, quickstart):
         assert "pip install calmplots" in text
         assert 'pip install "calmplots[all]"' in text
+        assert "git+https://github.com/techwizrd/calmplots.git" in text
+        assert (
+            'uv add "calmplots @ git+https://github.com/techwizrd/calmplots.git"'
+            in text
+        )
 
 
 def test_quickstart_python_calls_work_when_extras_are_installed():
