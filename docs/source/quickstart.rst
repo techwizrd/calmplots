@@ -1,8 +1,22 @@
 Quickstart
 ==========
 
-Install with uv
----------------
+Install
+-------
+
+For most users:
+
+.. code-block:: bash
+
+   pip install calmplots
+
+To include all optional backend integrations:
+
+.. code-block:: bash
+
+   pip install "calmplots[all]"
+
+For local development with `uv`:
 
 .. code-block:: bash
 
