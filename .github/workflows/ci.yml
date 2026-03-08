@@ -65,3 +65,38 @@ jobs:
 
       - name: Build sdist and wheel
         run: uv run python -m build
+
+  package-smoke:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.12"
+
+      - name: Build wheel
+        run: |
+          uv sync --extra test
+          uv run python -m build --wheel
+
+      - name: Install built wheel with extras and run quickstart smoke
+        run: |
+          python3 -m venv .venv-wheel
+          . .venv-wheel/bin/activate
+          python -m pip install --upgrade pip
+          WHEEL_PATH=$(ls dist/*.whl)
+          WHEEL_URL="file://$(pwd)/${WHEEL_PATH}"
+          python -m pip install "calmplots[all] @ ${WHEEL_URL}"
+          python - <<'PY'
+          import calmplots
+
+          calmplots.apply_matplotlib_theme()
+          calmplots.set_seaborn_theme(context="notebook")
+          calmplots.register_plotly_template(set_default=True)
+          calmplots.enable_altair_theme()
+          print(calmplots.__version__)
+          PY

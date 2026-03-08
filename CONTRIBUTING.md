@@ -71,4 +71,14 @@ For a release:
 
 1. Update version in `pyproject.toml`.
 2. Add release notes in `CHANGELOG.md`.
-3. Create and push a tag (`vX.Y.Z`).
+3. Ensure both GitHub environments exist:
+   - `testpypi` (trusted publisher configured in TestPyPI)
+   - `pypi` (trusted publisher configured in PyPI)
+   - configure `pypi` with required reviewers if you want manual approval before publish
+4. Create and push a tag (`vX.Y.Z`).
+5. The release workflow will:
+   - build wheel/sdist
+   - run `twine check`
+   - run wheel install + quickstart smoke checks
+   - publish to TestPyPI first
+   - publish to PyPI after the TestPyPI gate

@@ -45,7 +45,21 @@ Accessibility note:
 The base palette set is derived from
 [`blueycolors`](https://github.com/ekholme/blueycolors) by Eric Ekholm.
 
-## Install with uv
+## Install
+
+For most users:
+
+```bash
+pip install calmplots
+```
+
+To install all optional backend integrations:
+
+```bash
+pip install "calmplots[all]"
+```
+
+For local development with `uv`:
 
 ```bash
 uv sync --extra all
