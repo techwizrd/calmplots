@@ -1,0 +1,57 @@
+name: Bug report
+description: Report a reproducible problem in calmplots
+title: "bug: "
+labels: [bug, needs reproduction]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please include enough detail for us to reproduce quickly.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you observe instead?
+      placeholder: A short description of the issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Share a small code snippet we can run.
+      placeholder: |
+        import calmplots
+        ...
+      render: python
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: calmplots version
+      placeholder: 0.1.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include Python version, OS, and plotting backend versions.
+      placeholder: Python 3.12 on Ubuntu 24.04, matplotlib 3.10, seaborn 0.13
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I can reproduce this with current main or latest release.
+          required: true
