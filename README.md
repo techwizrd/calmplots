@@ -7,6 +7,8 @@
 [![Python](https://img.shields.io/badge/python-3.9%2B-3776AB.svg)](https://www.python.org/downloads/)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://pre-commit.com/)
 
+If `calmplots` is useful in your work, consider starring and watching the repo to follow updates.
+
 `calmplots` is a cohesive visualization theme package for:
 
 - Matplotlib
@@ -131,3 +133,16 @@ Altair
 ## Contributing
 
 See `CONTRIBUTING.md` for development setup, checks, and release process.
+
+## Get involved
+
+- Ask usage and design questions in [GitHub Discussions](https://github.com/techwizrd/calmplots/discussions).
+- Report bugs and request features via [Issues](https://github.com/techwizrd/calmplots/issues).
+- Look for issues labeled `good first issue` or `help wanted` to jump in quickly.
+
+## Roadmap
+
+- Publish to PyPI and add release automation checks.
+- Expand gallery coverage with more chart types and dashboards.
+- Add backend parity checks for theming behavior.
+- Improve accessibility guidance with practical chart design examples.
