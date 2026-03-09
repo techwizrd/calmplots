@@ -50,4 +50,4 @@ __all__ = [
     "use_matplotlib_stylesheet",
 ]
 
-__version__ = "0.1.0"
+__version__ = "0.1.2"

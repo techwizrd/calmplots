@@ -126,7 +126,7 @@ calmplots.enable_altair_theme()
 - Compatibility notes: [Compatibility](https://techwizrd.github.io/calmplots/compatibility.html)
 - Colorblindness approach: [Colorblindness](https://techwizrd.github.io/calmplots/colorblindness.html)
 - Gallery page: [Gallery](https://techwizrd.github.io/calmplots/gallery.html)
-- Matrix index: [examples/gallery/matrix/README.md](examples/gallery/matrix/README.md)
+- Matrix index: [examples/gallery/matrix/README.md](https://github.com/techwizrd/calmplots/blob/main/examples/gallery/matrix/README.md)
 
 ## Gallery Preview
 
@@ -134,33 +134,31 @@ Palette Gallery (all palettes)
 
 Light background
 
-![calmplots palettes light](examples/gallery/palettes_light.png)
+![calmplots palettes light](https://techwizrd.github.io/calmplots/_images/palettes_light.png)
 
 Dark background
 
-![calmplots palettes dark](examples/gallery/palettes_dark.png)
+![calmplots palettes dark](https://techwizrd.github.io/calmplots/_images/palettes_dark.png)
 
 Before vs After (Matplotlib)
 
-| Default Matplotlib | calmplots |
-|---|---|
-| ![Default Matplotlib](examples/gallery/before_default_scatter.png) | ![calmplots Matplotlib](examples/gallery/before_calmplots_scatter.png) |
+See the full comparison matrix in the docs-linked index above.
 
 Matplotlib/Seaborn
 
-![Matplotlib Seaborn Gallery](examples/gallery/gallery_matplotlib.png)
+![Matplotlib Seaborn Gallery](https://techwizrd.github.io/calmplots/_images/gallery_matplotlib.png)
 
 Plotnine
 
-![Plotnine Scatter](examples/gallery/plotnine_scatter.png)
+![Plotnine Scatter](https://techwizrd.github.io/calmplots/_images/plotnine_scatter.png)
 
 Plotly
 
-![Plotly Scatter](examples/gallery/plotly_scatter.png)
+![Plotly Scatter](https://techwizrd.github.io/calmplots/_images/plotly_scatter.png)
 
 Altair
 
-![Altair Scatter](examples/gallery/altair_scatter.png)
+![Altair Scatter](https://techwizrd.github.io/calmplots/_images/altair_scatter.png)
 
 ## Contributing
 
