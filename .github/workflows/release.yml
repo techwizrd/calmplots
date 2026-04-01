@@ -57,7 +57,7 @@ jobs:
     needs: build
     steps:
       - name: Download dist artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: dist-artifacts
           path: dist
@@ -91,7 +91,7 @@ jobs:
       url: https://test.pypi.org/p/calmplots
     steps:
       - name: Download dist artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: dist-artifacts
           path: dist
@@ -112,7 +112,7 @@ jobs:
       url: https://pypi.org/p/calmplots
     steps:
       - name: Download dist artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: dist-artifacts
           path: dist
@@ -128,7 +128,7 @@ jobs:
       contents: write
     steps:
       - name: Download dist artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: dist-artifacts
           path: dist
